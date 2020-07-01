@@ -9,6 +9,9 @@ void swap (int *x, int *y) {
   *y = temp;
 }
 
+//変更した配列の状態をmainでも適用されるように
+//ポインタを使って入れ替えをする
+
 /* バブルソート */
 void bubble_sort (int array[], int array_size) {
   int i, j;
@@ -27,25 +30,32 @@ int main (void) {
   int j = 0;
   int val;
 
+  //配列の要素の入力
   for (j = 0; j < 10; j++) {
       printf("array[%d] = ",j + 1);
       scanf("%d", &array[j]);
   }
 
-  printf("Before sort: ");    //ソート前を表示
+  //ソート前を表示
+  printf("Before sort: ");
   for (i = 0; i < 10; i++) {
     printf("%d ", array[i]);
+    if (i == 9) {
+        printf("\n");
+    }
   }
-  printf("\n");
 
-  bubble_sort(array, 10);   //配列と要素数を渡す
+  //配列と要素数をbubble_sort()へ渡す
+  bubble_sort(array, 10);
 
-  printf("After  sort: ");  //ソート前を表示
+  //ソート後を表示
+  printf("After  sort: ");
   for (i = 0; i < 10; i++) {
     printf("%d ", array[i]);
+    if(i == 9){
+        printf("\n");
+    }
   }
-
-  printf("\n");
 
   return 0;
 }
