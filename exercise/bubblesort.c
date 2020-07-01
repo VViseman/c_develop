@@ -21,18 +21,24 @@ void bubble_sort (int array[], int array_size) {
 }
 
 int main (void) {
-  int array[10] = { 2, 1, 8, 5, 4, 7, 9, 0, 6, 3 };
+  //int array[10] = { 2, 1, 8, 5, 4, 7, 9, 0, 6, 3 };
+  int array[10] = {0};
   int i;
+  int j = 0;
 
-  printf("Before sort: ");
+  for (j = 0; j < 10; j++) {
+      array[i] = 0;
+  }
+
+  printf("Before sort: ");    //ソート前を表示
   for (i = 0; i < 10; i++) {
     printf("%d ", array[i]);
   }
   printf("\n");
 
-  bubble_sort(array, 10);
+  bubble_sort(array, 10);   //配列と要素数を渡す
 
-  printf("After  sort: ");
+  printf("After  sort: ");  //ソート前を表示
   for (i = 0; i < 10; i++) {
     printf("%d ", array[i]);
   }
