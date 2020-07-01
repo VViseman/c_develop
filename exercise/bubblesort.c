@@ -25,9 +25,11 @@ int main (void) {
   int array[10] = {0};
   int i;
   int j = 0;
+  int val;
 
   for (j = 0; j < 10; j++) {
-      array[i] = 0;
+      printf("array[%d] = ",j + 1);
+      scanf("%d", &array[j]);
   }
 
   printf("Before sort: ");    //ソート前を表示
