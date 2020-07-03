@@ -30,10 +30,10 @@ void pushdown (int array[], int first, int last) {
 void heap_sort (int array[], int array_size) {
   int i;
 
-  for (i = array_size/2; i >= 1; i--) {
-    pushdown(array, i, array_size);   // 全体をヒープ化
+  for (i = (array_size - 1)/2; i >= 0; i--) {
+    pushdown(array, i, array_size - 1);   // 全体をヒープ化
   }
-  for (i = array_size; i >= 2; i--) {
+  for (i = (array_size - 1); i >= 1; i--) {
     swap(&array[1], &array[i]);   // 最大のものを最後に
     pushdown(array, 1, i-1);   // ヒープ再構築
   }
