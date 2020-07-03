@@ -18,7 +18,9 @@ void bubble_sort (int array[], int array_size) {
 
   for (i = 0; i < array_size - 1; i++){
     for (j = array_size - 1; j >= i + 1; j--){   // 右から左に操作
-      if (array[j] < array[j-1]) { swap(&array[j], &array[j-1]); }
+      if (array[j] < array[j-1]) { //後ろの要素が前の要素より小さければ入れ替える
+        swap(&array[j], &array[j-1]);
+      }
     }
   }
 }
@@ -31,11 +33,11 @@ int main (void) {
   int val;
 
   //配列の要素の入力
-  for (j = 0; j < 10; j++) {
+/*  for (j = 0; j < 10; j++) {
       printf("array[%d] = ",j + 1);
       scanf("%d", &array[j]);
   }
-
+*/
   //ソート前を表示
   printf("Before sort: ");
   for (i = 0; i < 10; i++) {
@@ -45,7 +47,7 @@ int main (void) {
     }
   }
 
-  //配列と要素数をbubble_sort()へ渡す
+  //配列と要素数をbubble_sort()へ渡してソート
   bubble_sort(array, 10);
 
   //ソート後を表示
