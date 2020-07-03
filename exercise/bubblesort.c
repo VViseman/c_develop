@@ -24,8 +24,8 @@ void bubble_sort (int array[], int array_size) {
 }
 
 int main (void) {
-  //int array[10] = { 2, 1, 8, 5, 4, 7, 9, 0, 6, 3 };
-  int array[10] = {0};
+  int array[10] = { 2, 1, 8, 5, 4, 7, 9, 0, 6, 3 };
+  //int array[10] = {0};
   int i;
   int j = 0;
   int val;
