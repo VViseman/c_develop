@@ -1,6 +1,7 @@
 #include <stdio.h>
 
-#define N 10
+#define N 10//グローバル変数
+
 
 /* 値を入れ替える関数 */
 void swap (int *x, int *y) {
