@@ -16,7 +16,9 @@ void pushdown(int array[], int first, int last) {
     int parent = first;      // 親
     int child = 2 * parent;  // 左の子
     while (child <= last) {
-        if ((child < last) && (array[child] < array[child + 1])) {
+        if ((child < last) &&
+            (array[child] <
+             array[child + 1])) {  // array[child] : 左側, array[child + 1] : 右側
             child++;  // 右の子の方が大きいとき、右の子を比較対象に設定
         }
         if (array[child] <= array[parent]) {
