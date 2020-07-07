@@ -13,20 +13,18 @@ void swap(int *x, int *y) {
 
 /*下に下げながらヒープを構築する位置までおろしていくpushdouwn操作*/
 void pushdown(int array[], int first, int last) {
-    int parent = first;      // 親
-    int child = 2 * parent;  // 左の子
+    int parent = first;      //親
+    int child = 2 * parent;  //左の子
     while (child <= last) {
-        if ((child < last) &&
-            (array[child] <
-             array[child + 1])) {  // array[child] : 左側, array[child + 1] : 右側
-            child++;  // 右の子の方が大きいとき、右の子を比較対象に設定
+        if ((child < last) && (array[child] < array[child + 1])) {  //array[child] : 左側, array[child + 1] : 右側
+            child++; // 右の子の方が大きいとき、右の子を比較対象に設定
         }
-        if (array[child] <= array[parent]) {
-            break;
-        }  // ヒープ済み
-        swap(&array[child], &array[parent]);
-        parent = child;//深くしていく
-        child = 2 * parent;//深くしていく
+        if (array[child] <= array[parent]) {//ヒープソートの条件と一致
+            break; // ヒープ済み
+        }
+        swap(&array[child], &array[parent]);//親と子の入れ替え
+        parent = child;      //深くしていく
+        child  = 2 * parent; //深くしていく
     }
 }
 
@@ -55,7 +53,7 @@ int main(void) {
 
     heap_sort(array, 10);
 
-    printf("After sort: ");
+    printf("After  sort: ");
     for (i = 1; i < 11; i++) {
         printf("%d ", array[i]);
     }
