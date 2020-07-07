@@ -1,5 +1,0 @@
-.DS_Store
-previous/**
-!previous/*.c
-exercise/**
-!exercise/*.c
