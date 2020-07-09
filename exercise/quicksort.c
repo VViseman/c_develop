@@ -1,3 +1,14 @@
+//pivot=基準点
+//pivotを元にしてpivotより小さい物を右に大きい物を左に分けていく
+//divide and conquerを使って同じように分けたものについて
+//pivotを設けて操作を続ける
+
+/*
+・pivot（軸となる要素）を1つ選び、pivotより小さい部分列と大きい部分列に分ける
+・小さい側でpivot（軸となる要素）を1つ選び、pivotより小さい部分列と大きい部分列に分ける
+・大きい側でpivot（軸となる要素）を1つ選び、pivotより小さい部分列と大きい部分列に分ける
+*/
+
 #include <stdio.h>
 
 void swap(int* a, int* b)
@@ -7,17 +18,21 @@ void swap(int* a, int* b)
     *b = t;
 }
 
-int partition (int array[], int l, int r) {
-    int pivot = array[r];
-    int i = (l - 1);
+/*
+pivotを決め、全データをpivotを境目に振り分け、pivotの添え字を返す
+*/
+int partition (int array[], int left, int right) {
+    int pivot = array[right]; //pivotの設置
+    printf("%d\n", pivot);
+    int i = (left - 1);
 
-    for (int j = l; j <= r - 1; j++) {
+    for (int j = left; j <= right - 1; j++) {
         if (array[j] <= pivot) {
             i++;
             swap(&array[i], &array[j]);
         }
     }
-    swap(&array[i + 1], &array[r]);
+    swap(&array[i + 1], &array[right]);
     return (i + 1);
 }
 
@@ -28,7 +43,6 @@ void quickSort(int array[], int l, int r) {
         quickSort(array, pivot + 1, r);
     }
 }
-
 
 
 int main (void) {
