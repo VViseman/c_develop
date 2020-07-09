@@ -159,9 +159,7 @@ enum CmdRetValue_tag get_cmd(void)
     return CMD_RET_VALUE_CONTINUE;
 }
 
-/*
-    addコマンドの実行
-*/
+/*addコマンドの実行*/
 enum CmdRetValue_tag cmd_add(void)
 {
     char buf[40];
@@ -176,9 +174,7 @@ enum CmdRetValue_tag cmd_add(void)
     return CMD_RET_VALUE_CONTINUE;
 }
 
-/*
-    deleteコマンドの実行
-*/
+/*deleteコマンドの実行*/
 enum CmdRetValue_tag cmd_delete(void)
 {
     char buf[40];
@@ -198,9 +194,7 @@ enum CmdRetValue_tag cmd_delete(void)
     return CMD_RET_VALUE_CONTINUE;
 }
 
-/*
-    searchコマンドの実行
-*/
+/*searchコマンドの実行*/
 enum CmdRetValue_tag cmd_search(void)
 {
     char buf[40];
@@ -220,9 +214,7 @@ enum CmdRetValue_tag cmd_search(void)
     return CMD_RET_VALUE_CONTINUE;
 }
 
-/*
-    clearコマンドの実行
-*/
+/*clearコマンドの実行*/
 enum CmdRetValue_tag cmd_clear(void)
 {
     clear_list();
@@ -230,9 +222,7 @@ enum CmdRetValue_tag cmd_clear(void)
     return CMD_RET_VALUE_CONTINUE;
 }
 
-/*
-    printコマンドの実行
-*/
+/*printコマンドの実行*/
 enum CmdRetValue_tag cmd_print(void)
 {
     print_list();
@@ -240,9 +230,7 @@ enum CmdRetValue_tag cmd_print(void)
     return CMD_RET_VALUE_CONTINUE;
 }
 
-/*
-    exitコマンドの実行
-*/
+/*exitコマンドの実行*/
 enum CmdRetValue_tag cmd_exit(void)
 {
     puts( "終了します。" );
@@ -250,12 +238,8 @@ enum CmdRetValue_tag cmd_exit(void)
     return CMD_RET_VALUE_EXIT;
 }
 
-/*
-    要素を追加する
-
-    引数：
-        value:  追加する要素の数値データ。
-*/
+/*要素を追加する
+引数：value:  追加する要素の数値データ。*/
 void add_elem(int value)
 {
     // リストの末尾を探す
@@ -276,12 +260,9 @@ void add_elem(int value)
 }
 
 /*
-    要素を削除する
-
-    引数：
-        value：  削除する要素が持つ数値データ。
-    戻り値：
-        削除できた要素の個数を返す。
+要素を削除する
+引数：value：削除する要素が持つ数値データ。
+戻り値：削除できた要素の個数を返す。
 */
 int delete_elem(int value)
 {
@@ -314,9 +295,7 @@ int delete_elem(int value)
     return count;
 }
 
-/*
-    要素を空にする
-*/
+/*要素を空にする*/
 void clear_list(void)
 {
     struct LinkedList_tag* p = gHead.next;
@@ -336,9 +315,7 @@ void clear_list(void)
     }
 }
 
-/*
-    要素を出力する
-*/
+/*要素を出力する*/
 void print_list(void)
 {
     struct LinkedList_tag* p = gHead.next;
@@ -354,12 +331,8 @@ void print_list(void)
     }
 }
 
-/*
-    末尾の要素を探す
-
-    戻り値：
-        連結リストの末尾にある要素を指すポインタ。
-*/
+/*末尾の要素を探す
+戻り値：連結リストの末尾にある要素を指すポインタ。*/
 struct LinkedList_tag* search_tail(void)
 {
     struct LinkedList_tag* p = &gHead;
@@ -371,15 +344,10 @@ struct LinkedList_tag* search_tail(void)
     return p;
 }
 
-/*
-    指定した値を持つ要素を探す
-
-    引数：
-        value：  探し出す要素が持つ数値データ。
-    戻り値：
-        先頭から連結リストをたどり、最初に見つけた value と同じ値を持つ要素のメモリアドレス。
-        見つからなかった場合は NULL を返す。
-*/
+/*指定した値を持つ要素を探す
+引数：value：  探し出す要素が持つ数値データ。
+戻り値：先頭から連結リストをたどり、最初に見つけた value と同じ値を持つ要素のメモリアドレス。
+       見つからなかった場合は NULL を返す。*/
 struct LinkedList_tag* search_elem(int value)
 {
     struct LinkedList_tag* p = gHead.next;
@@ -394,18 +362,13 @@ struct LinkedList_tag* search_elem(int value)
     return NULL;
 }
 
-/*
-    標準入力から１行分受け取る
-
-    受け取った文字列の末尾には '\0' が付加される。
-    そのため、実際に受け取れる最大文字数は size - 1 文字。
-
-    引数：
-        buf:    受け取りバッファ
-        size:   buf の要素数
-    戻り値：
-        buf が返される
-*/
+/*標準入力から１行分受け取る
+受け取った文字列の末尾には '\0' が付加される。
+そのため、実際に受け取れる最大文字数は size - 1 文字。
+引数：buf:    受け取りバッファ
+     size:   buf の要素数
+戻り値：
+    buf が返される*/
 void get_line(char* buf, size_t size)
 {
     fgets(buf, size, stdin);
