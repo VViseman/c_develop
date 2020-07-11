@@ -18,29 +18,28 @@ void swap(int* a, int* b)
     *b = t;
 }
 
-/*
-pivotを決め、全データをpivotを境目に振り分け、pivotの添え字を返す
-*/
-int partition (int array[], int left, int right) {
-    int pivot = array[right]; //pivotの設置
-    printf("%d\n", pivot);
-    int i = left - 1;
+//pivotを決め、全データをpivotを境目に振り分け、pivotの添え字を返す
+int partition(int array[], int left, int right) {  //最初はl = 0, r = 10
+    int pivot = array[right]; //基準となる値のpivotの設置 最初は10番目
+    printf("%d\n", pivot); //pivotの値の変化の確認
+    int i = left - 1; //jで指す要素より一つ前の要素を指す。最初は0 - 1 = -1. -1でも動く
 
-    for (int j = left; j <= right - 1; j++) {
-        if (array[j] <= pivot) {
+    for (int j = left; j <= right - 1; j++) { //最初はleft = 0, right = 10
+        if (array[j] <= pivot) { //基準より数値が小さいとき
             i++;
-            swap(&array[i], &array[j]);
+            swap(&array[i], &array[j]); //分けた中でのソート
         }
     }
-    swap(&array[i + 1], &array[right]);
+    swap(&array[i + 1], &array[right]); //ソートが終わったらiは左側の箸の要素を指すはずなので、それと基準に見立てたrightと入れ替える
     return (i + 1);
 }
 
-void quickSort(int array[], int l, int r) {
+void quickSort(int array[], int l, int r) { //最初はl = 0, r = 10
     if (l < r) {
-        int pivot = partition(array, l, r);
-        quickSort(array, l, pivot - 1);
-        quickSort(array, pivot + 1, r);
+        int pivot = partition(array, l, r); //最初はl = 0, r = 10
+        quickSort(array, l, pivot - 1); //左側のソート 0,
+        quickSort(array, pivot + 1, r); //右側のソート
+        //左側のソートをしてから右側のソートをする。
     }
 }
 
@@ -50,7 +49,7 @@ int main (void) {
     int array[10] = {3, 6, 1, 7, 2, 0, 4, 5, 9, 8};
 
     printf("before array: ");
-    for (i = 0; i < sizeof(array) / sizeof(array[0]); i++) {
+    for (i = 0; i < sizeof(array) / sizeof(array[0]); i++) { //要素の表示
         printf("%d ", array[i]);
     }
     printf("\n");
@@ -58,7 +57,7 @@ int main (void) {
     quickSort(array, 0, sizeof(array) / sizeof(array[0]) - 1);
 
     printf("sorted array: ");
-    for (i = 0; i < sizeof(array) / sizeof(array[0]); i++) {
+    for (i = 0; i < sizeof(array) / sizeof(array[0]); i++) { //要素の表示
         printf("%d ", array[i]);
     }
     printf("\n");
