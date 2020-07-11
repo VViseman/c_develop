@@ -24,7 +24,7 @@ pivotを決め、全データをpivotを境目に振り分け、pivotの添え�
 int partition (int array[], int left, int right) {
     int pivot = array[right]; //pivotの設置
     printf("%d\n", pivot);
-    int i = (left - 1);
+    int i = left - 1;
 
     for (int j = left; j <= right - 1; j++) {
         if (array[j] <= pivot) {
@@ -49,7 +49,7 @@ int main (void) {
     int i;
     int array[10] = {3, 6, 1, 7, 2, 0, 4, 5, 9, 8};
 
-    printf("       array: ");
+    printf("before array: ");
     for (i = 0; i < sizeof(array) / sizeof(array[0]); i++) {
         printf("%d ", array[i]);
     }
