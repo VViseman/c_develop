@@ -44,7 +44,6 @@ void quickSort(int array[], int l, int r) {
     }
 }
 
-
 int main (void) {
 
     int i;
