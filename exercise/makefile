@@ -3,6 +3,7 @@ INCS=
 OBJS=test.c
 LIBS=
 TARGET=test
+CC := gcc
 
 all: $(TARGET)
 
