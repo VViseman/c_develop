@@ -3,3 +3,4 @@ previous/**
 !previous/*.c
 exercise/**
 !exercise/*.c
+!makefile
