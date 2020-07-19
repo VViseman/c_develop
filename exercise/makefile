@@ -10,15 +10,15 @@
 #タブでインデント
 
 CC := gcc #コンパイラ
-CFLAGS=-I -Wall -Werror -O2 -march=native #コンパイルオプション
+CFLAGS=-I -Wall -Werror -O2 -march=native -c #コンパイルオプション
 INCS=
-OBJS=testc #ソースファイル
+OBJS=test.c #ソースファイル
 LIBS=
-TARGET=test #実行ファイル
-OBJDIR=obj #オブジェクトファイル保存フォルダ
+TARGET=./test #実行ファイル
+OBJDIR=./obj #オブジェクトファイル保存フォルダ
 INCLUDE=
 
-all: $(TARGET) #実行ファイル
+#all: $(TARGET) #実行ファイル
 
 #%.o: %.c $(INCS)
 #	$(CC) $(CFLAGS) -c -o $@ $<
@@ -27,12 +27,16 @@ all: $(TARGET) #実行ファイル
 #	$(CC) $(CFLAGS) -o $@ $^ $(LIBS)
 
 #上の2つと同じように実行できる
+#実行ファイル作成
+$(TARGET): $(OBJS) $(LIBS)
+	$(CC) -o $@ $^ $(LDFLAGS)
+
 #ソースファイルをコンパイル
-#$(OBJDIR)/%.o: %.c
-#	@if [ ! -d $(OBJDIR) ];\
-#	then echo "mkdir -p $(OBJDIR)";mkdir -p $(OBJDIR);\
-#	fi
-#	$(CC) $(CFLAGS) $(INCLUDE) -o $@ -c $< $(LIBS)
+$(OBJDIR)/*.o: *.c
+	@if [ ! -d $(OBJDIR) ];\
+	then echo "mkdir -p $(OBJDIR)";mkdir -p $(OBJDIR);\
+	fi
+	$(CC) $(CFLAGS) $(INCLUDE) -o $@ -c $< $(LIBS)
 
 #make clean で削除してから新しくmakeする
 clean:
