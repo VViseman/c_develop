@@ -46,7 +46,8 @@ void quickSort(int array[], int l, int r) { //最初はl = 0, r = 10
 int main (void) {
 
     int i;
-    int array[10] = {3, 6, 1, 7, 2, 0, 4, 5, 9, 8};
+//    int array[10] = {3, 6, 1, 7, 2, 0, 4, 5, 9, 8};
+    int array[8] = {34, 27, 23, 19, 17, 16, 8, 4};
 
     printf("before array: ");
     for (i = 0; i < sizeof(array) / sizeof(array[0]); i++) { //要素の表示

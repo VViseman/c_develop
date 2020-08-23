@@ -48,7 +48,8 @@ void h_down(int* ar, int size, int root) {
 }
 
 int main() {
-    int ar[] = {3, 0, 6, 8, 4, 9, 1, 5, 7, 2};
+    //    int ar[] = {3, 0, 6, 8, 4, 9, 1, 5, 7, 2};
+    int ar[] = {34, 27, 23, 19, 17, 16, 8, 4};
     int ar_size = sizeof(ar) / sizeof(int) - 1;
 
     h_sort(ar, ar_size);
