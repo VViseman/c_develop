@@ -43,17 +43,21 @@ void fall(){
     int i, j, k;
     for (i = 0; i < 5; i++){
         for (j = 0, k = 0; j < 5; j++, k++){
-            while(f[i][k] == 'x' && k < 5){
+            while(f[i][k] == 'x' && k < 5){ //f[i][k]がxでなく、kが5より小さい間
                 k++;
             }
+            printf("%d\n", k);
             if (k < 5){
                 f[i][j] = f[i][k];
+                //printf("%d\n", k);
+                //printf("f[i][j] %c\n", f[i][j]);
+                //printf("f[i][k] %c\n", f[i][k]);
             } else {
                 f[i][j] = 'x';
             }
         }
-        printf("k %d\n", k);
-        printf("j %d\n", j);
+//        printf("k %d\n", k);
+//        printf("j %d\n", j);
     }
 }
 
