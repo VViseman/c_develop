@@ -28,6 +28,7 @@ int main(int argc, char *argv[]) {
 
     for (int i = 0; i < len; i++){
         sum += s[i] - '0'; //文字コードで数字の'0'を引いて文字コードのオフセットを除去して数字の差だけ得る
+        //printf("%d\n", sum);
     }
 
     if (sum % 9 == 0) {
